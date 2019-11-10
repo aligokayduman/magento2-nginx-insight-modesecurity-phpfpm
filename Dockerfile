@@ -46,7 +46,9 @@ RUN useradd docker-usr \
     && usermod -aG root www-data
     
 #Nginx-ModSecurity-PageSpeedInsight
-RUN apt install -y apt-transport-https \
+RUN apt update \ 
+    && apt upgrade -y \
+    && apt install -y apt-transport-https \
                       apt-utils \
                       autoconf \
                       automake \

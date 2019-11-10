@@ -2,6 +2,10 @@ FROM php:7.2.11-fpm
 
 MAINTAINER A. Gökay Duman <aligokayduman@gmail.com>
 
+ENV NPS_VERSION 1.13.35.2
+ENV NGINX_VERSION 1.16.1
+ENV CPU_CORE x64
+
 # General Commands
 RUN apt update && apt upgrade -y 
 

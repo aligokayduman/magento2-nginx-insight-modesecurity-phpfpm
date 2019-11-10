@@ -121,8 +121,11 @@ RUN cd \
 # Supervisord Install
 RUN apt install -y supervisor \
     && mkdir -p /var/log/supervisor
-
 COPY ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Cron Install
+RUN apt install -y cron 
+COPY ./jobs /etc/cron.d/jobs
 
 #Entrypoint
 CMD ["/usr/bin/supervisord"]

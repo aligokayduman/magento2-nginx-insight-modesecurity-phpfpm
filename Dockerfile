@@ -124,6 +124,12 @@ RUN cd \
     && make \
     && make install
     
+# LetsEncrypt-Certbot Install    
+RUN apt install -y certbot python-certbot-nginx
+
+# Tools Install
+RUN apt install -y nano htop iputils-ping
+    
 # Supervisord Install
 RUN apt install -y supervisor \
     && mkdir -p /var/log/supervisor

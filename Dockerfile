@@ -125,7 +125,7 @@ RUN cd \
     && make install
     
 # LetsEncrypt-Certbot Install    
-RUN apt install -y certbot python-certbot-nginx
+RUN apt install -y certbot
 
 # Tools Install
 RUN apt install -y nano htop iputils-ping

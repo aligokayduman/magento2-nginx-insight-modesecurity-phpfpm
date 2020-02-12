@@ -124,6 +124,10 @@ RUN cd \
     && make \
     && make install
     
+# Permission for GooglePageSpeed
+RUN mkdir /var/ngx_pagespeed_cache \
+    && chown nginx:nginx /var/ngx_pagespeed_cache
+    
 # LetsEncrypt-Certbot Install    
 RUN apt install -y certbot
 
@@ -138,6 +142,13 @@ COPY ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # Cron Install
 RUN apt install -y cron 
 COPY ./jobs /etc/cron.d/jobs
+
+# Composer Install
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Some Tools
+RUN apt install -y iputils-ping \
+    && htop    
 
 #Entrypoint
 CMD ["/usr/bin/supervisord"]

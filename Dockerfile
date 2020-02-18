@@ -146,9 +146,5 @@ COPY ./jobs /etc/cron.d/jobs
 # Composer Install
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Some Tools
-RUN apt install -y iputils-ping \
-    && htop    
-
 #Entrypoint
 CMD ["/usr/bin/supervisord"]
